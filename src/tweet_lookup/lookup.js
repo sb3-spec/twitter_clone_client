@@ -1,4 +1,3 @@
-import { getCookie } from ".";
 import Cookies from 'js-cookie';
 
 export function lookup(method, endpoint, callback, data) {

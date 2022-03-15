@@ -21,7 +21,6 @@ function Home({currUser, setCurrUser}) {
     const [newTweets, setNewTweets] = useState([]);
     const [tweets, setTweets] = useState([]);
     const [tweetsDidSet, setTweetsDidSet] = useState(false);
-    const [nextUrl, setNextUrl] = useState();
     const [currentSection, setCurrentSection] = useState('Home');
     const [loading, setLoading] = useState(true);
 
@@ -62,14 +61,14 @@ function Home({currUser, setCurrUser}) {
               <Route exact path='/' element={<Feed focusedTweetId={focusedTweetId} setFocusedTweetId={setFocusedTweetId} 
               loading={loading} currUser={currUser} newTweets={newTweets} setNewTweets={setNewTweets}
               tweets={tweets} setTweets={setTweets}tweetsDidSet={tweetsDidSet} callback={apiTweetListCallback}
-              setTweetsDidSet={setTweetsDidSet} nextUrl={nextUrl} handleLoadNextResponse={handleLoadNextResponse} />}/>
+              setTweetsDidSet={setTweetsDidSet} handleLoadNextResponse={handleLoadNextResponse} />}/>
               
               <Route exact path='profile' element={<ProfileComponent 
                     currUser={currUser} callback={apiTweetListCallback}
                     setCurrUser={setCurrUser} className="profile-view" 
                     handleLoadNextResponse={handleLoadNextResponse} homeProfile isProfile isRoot/>}/>
               <Route exact path='profile/:username' element={<ProfileComponent currUser={currUser} callback={apiTweetListCallback}
-                  setCurrUser={setCurrUser} className="profile-view" handleLoadNextResponse={handleLoadNextResponse} nextUrl={nextUrl} isProfile/>}/>
+                  setCurrUser={setCurrUser} className="profile-view" handleLoadNextResponse={handleLoadNextResponse} isProfile/>}/>
               <Route exact path='explore' element={<Explore currUser={currUser} />}/>
               <Route exact path=':tweetId' element={<TweetDetail currUser={currUser}/>} />
               <Route exact path='messages' element={<MessageHub />}/>

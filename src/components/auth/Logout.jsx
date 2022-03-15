@@ -1,5 +1,4 @@
 import React from 'react'
-import {api} from '../../api/axios'
 import Cookies from 'js-cookie'
 
 import './styles.css'

@@ -1,5 +1,4 @@
 import {useEffect, useState, useCallback} from 'react';
-import { apiTweetDetail } from '../../tweets/tweet_functions';
 import Tweet from '../../tweets/components/Tweet'
 import {api} from '../../api/axios'
 import './styles.css'

@@ -6,7 +6,6 @@ import './styles.css'
 export default function TweetListFrame({activeView, currUser, profileOwner, apiFunction}) {
     const [tweets, setTweets] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [nextUrl, setNextUrl] = useState();
 
     // CALLBACKS
     const fetchTweetsCallback = (response, status) => {
@@ -26,20 +25,20 @@ export default function TweetListFrame({activeView, currUser, profileOwner, apiF
         let mounted = true;
         const fetchTweets = async () => {
             if (!mounted | !loading | !profileOwner) {return}
-            apiFunction(fetchTweetsCallback, profileOwner.username, nextUrl) 
+            apiFunction(fetchTweetsCallback, profileOwner.username) 
         }
         fetchTweets()
         return () => {
             mounted = false;
         }
-    }, [activeView, apiFunction, loading, nextUrl, profileOwner])
+    }, [activeView, apiFunction, loading, profileOwner])
 
     
     return (
         <div className={`tweet-frame__container`}>
             <div className="tweets-list">
                 <ol>
-                    {tweets && tweets.map((tweet, idx) => <Tweet tweet={tweet} key={idx} currentUser={currUser} nextUrl={nextUrl}/>)}
+                    {tweets && tweets.map((tweet, idx) => <Tweet tweet={tweet} key={idx} currentUser={currUser}/>)}
                 </ol>
             </div>
         </div>

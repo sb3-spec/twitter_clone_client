@@ -1,12 +1,14 @@
 import Cookies from 'js-cookie';
 
+const hostname = 'https://twitter-clone-drf.herokuapp.com'
+
 export function lookup(method, endpoint, callback, data) {
   let jsonData;
   if (data) {
     jsonData = JSON.stringify(data)
   }
   const xhr = new XMLHttpRequest()
-  const url = `http://localhost:8000/api${endpoint}`
+  const url = `${hostname}/api${endpoint}`
   const csrftoken = Cookies.get('csrftoken')
   xhr.responseType = "json"
   xhr.open(method, url)

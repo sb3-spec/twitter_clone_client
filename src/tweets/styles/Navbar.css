@@ -1,0 +1,11 @@
+.navbar__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6em;
+    border-bottom: 2px black solid;
+}
+
+.navbar__text {
+    color: rgb(36, 163, 206)
+}

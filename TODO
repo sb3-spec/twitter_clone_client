@@ -1,0 +1,8 @@
+1) keeping state between reloads, for the retweet and like buttons. if a usre likes a tweet and reloads the page, the number of likes is correct, but the button's appearance does
+not reflect the correct state
+
+2) color schemes?
+
+3) user profiles
+
+4) direct messaging

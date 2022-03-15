@@ -1,0 +1,43 @@
+.tweet-detail__container {
+    width: 100%;
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.075);
+    border-right: 1px solid rgba(0, 0, 0, 0.075);
+    border-left: 1px solid rgba(0, 0, 0, 0.075);
+    top: 3em;
+    padding-top: 1em;
+}
+
+.tweet-detail__header {
+    width: 592px;
+    justify-content: center;
+    position: fixed;
+    height: 3em;
+    font-weight: bold;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(5px);
+    z-index: 99;
+    border-right: 1px solid rgba(0, 0, 0, 0.075);
+    border-left: 1px solid rgba(0, 0, 0, 0.075);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+}
+
+
+.header__content {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .8em;
+    filter: none;
+    display: flex;
+    align-items: center;
+}
+
+
+.loading__container {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}

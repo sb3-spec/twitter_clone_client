@@ -1,0 +1,13 @@
+.header {
+    text-align: center;
+}
+
+.home-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 34% 1fr;
+    overflow: visible;
+}
+
+
+

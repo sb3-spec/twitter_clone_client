@@ -1,0 +1,31 @@
+.hidden {
+    display: none;
+}
+
+.profile__header {
+    width: 33.9%;
+    position: fixed; 
+    font-weight: bold;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(5px);
+    z-index: 99;
+    border-right: 1px solid rgba(0, 0, 0, .075);
+}
+
+.profile__content {
+    padding-top: .5em;
+    padding-left: .8em;
+    filter: none;
+}
+
+.profile__body {
+    margin-top: 3em;
+}
+
+
+
+.profile {
+    width: 100%;
+    margin-right: 0;
+}

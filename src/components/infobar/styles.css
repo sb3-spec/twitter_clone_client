@@ -1,0 +1,42 @@
+.infobar__outer {
+    justify-content: left;
+    width: 45%;
+    position: fixed;
+    right: -5em;
+}
+
+.widget__outer {
+    width: 50%;
+    margin-left: 2em;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.03);
+    position: relative;
+    top: 2em;
+}
+
+.widget__header {
+    min-height: 50px;
+}
+
+.widget__title {
+    position: relative;
+    left: 10px;
+    top: 10px;
+    font-weight: bold;
+}
+
+.widget__footer {
+    min-height: 50px;
+}
+
+.widget__footer:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.04)
+}
+
+.widget__footer__content {
+    color: 	#1DA1F2;
+    position: relative;
+    left: 10px;
+    top: 10px;
+}

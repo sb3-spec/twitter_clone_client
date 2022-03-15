@@ -1,0 +1,14 @@
+.tweet_feed__container {
+    width: 100%;
+    margin-right: 0;
+}
+
+.twitter-feed__container {
+    width: 100%;
+    margin-right: 0;
+}
+
+.twitter_feed {
+    border-left: 1px solid rgba(0, 0, 0, 0.075);
+    border-right: 1px solid rgba(0, 0, 0, 0.075);
+}

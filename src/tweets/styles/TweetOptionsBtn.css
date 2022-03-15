@@ -1,0 +1,58 @@
+.modal-background {
+    width: 200px;
+    height: 100vh;
+    position: sticky;
+    background-color: rgba(117, 114, 114, 0.418);
+}
+
+
+.options-btn__untoggled {
+    position: absolute;
+    right: 2em;
+    top: 1em;
+    border-radius: 1em;
+    transition: all 200ms ease-in-out;
+}
+
+.options-btn__untoggled:hover {
+    background-color: rgba(75, 186, 255, .5);
+    color:rgb(22, 22, 211);
+    opacity: .8;
+    cursor: pointer;
+    
+}
+
+.options-icon {
+    padding: .4em 1em;
+}
+
+
+.options-btn__toggled {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    border-radius: .2em;
+    box-shadow: rgb(101 119 134 / 20%) 0px 0px 15px, rgb(101 119 134 / 15%) 0px 0px 3px 1px;
+    border: none;
+    background-color: white;
+    z-index: 1000;
+    
+}
+
+.option__content {
+    padding: .7em 1em;
+    margin: 0;
+}
+
+.option {
+    min-width: 150px;
+    margin-bottom: 0;
+    transition: all;
+    transition-duration: 200ms;
+}
+
+.option:hover {
+    background-color: rgb(128, 128, 128, .1);
+    cursor: pointer;
+}
+

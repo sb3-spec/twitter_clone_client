@@ -1,0 +1,80 @@
+.navbar__container__outer {
+    justify-content: right;
+    text-align: right;
+    max-width: 650px;
+}
+
+.navbar__container__inner {
+    position: fixed;
+    left: 15em;
+}
+
+.navbar__header {
+    padding: 0 3em;
+    position: sticky;
+}
+
+
+.navbar__list {
+    list-style: none;
+    
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.twitter-icon {
+    padding: .5em;
+    font-size: 2em;
+    color: rgb(29, 155, 240);
+    transition: all 300ms ease-in;
+}
+
+.twitter-icon:hover {
+    background-color: rgba(29, 155, 240, .2);
+    border-radius: 2em;
+}
+
+
+.navbar__list-item {
+    cursor: pointer;
+    text-decoration: none;
+    padding: .75em .5em;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.2em;
+    color: black;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin: .5em;
+    transition: all 300ms ease-in;
+}
+
+.list-item__content {
+    text-align: left;
+}
+
+.navbar__list-item:hover {
+    color: black;
+    border-radius: 2em;
+    background-color: hsl(240, 0%, 90%);
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: black;
+}
+
+.profile__snippet {
+    position: fixed;
+    text-align: right;
+    justify-content: right;
+    left: 15em;
+    top: 90vh
+}
+
+.curved_border:hover {
+    border-radius: 10px;
+}
+

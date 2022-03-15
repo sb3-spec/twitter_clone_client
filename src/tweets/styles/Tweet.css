@@ -1,0 +1,123 @@
+.overall-container {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);    
+    display: grid;
+    grid-template-rows: 30% 1fr;
+}
+
+.overall-container:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+
+.retweet-header__container {
+    display: flex;
+}
+
+
+.tweet-container {
+    min-height: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.tweet-content-wrapper {
+    padding-left: 1.2em;
+}
+
+.tweet-header {
+    font-weight: 650;
+}
+
+.tweet-text {
+    font-size: 1em;
+    padding-left: 3.3em;
+}
+
+.text-green {
+    color: #56cd5c;
+}
+
+.buttons { 
+    margin-left: 2.5em;
+    padding: 0em 1em;
+    top: 20px;
+    display: flex;
+    position: relative;
+    justify-content: bottom;
+    font-size: 1em;
+    width: 50%;
+}
+
+.like-btn__container {
+    right: -20px;
+}
+
+.custom-btn {
+    font-size: 1em;
+    padding: 0.5em;
+    margin: 0;
+}
+
+.btn-icon {
+    padding-left: 1em;
+    padding-right: 2em;
+}
+
+.rt-icon {
+    top: 20px;
+}
+
+.rt-icon:hover {
+    color: #56cd5c;
+}
+
+
+
+.like-icon:hover {
+    color: #c40039;
+}
+
+.red-text {
+    color: #c40039;
+}
+
+
+.retweet-btn {
+    position: absolute;
+    right: 0;
+    padding-right: 2em;
+    margin-left: 3em;
+}
+
+
+.retweet {
+    width: 100%;
+}
+
+.no-border {
+    border: none;
+}
+
+.retweet-container {
+    font-size: 1em;
+}
+
+.retweet-header {
+    margin-bottom: 0;
+    padding-left: 3em;
+    font-size: .95em;
+}
+
+.profile-picture {
+    margin-left: 1em;
+    padding-top: .5em;
+}
+
+.profile-container {
+    position: relative;
+    padding-top: .5em;
+}
+
+.pointer {
+    cursor: pointer;
+}

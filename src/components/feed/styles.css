@@ -1,0 +1,27 @@
+.twitter_feed {
+    width: 100%;
+
+}
+
+
+
+.home__header {
+    width: 33.9%;
+    justify-content: center;
+    position: fixed;
+    height: 3em;
+    font-weight: bold;
+    font-size: 1.2em;
+    background: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(5px);
+    z-index: 99;
+    border-right: 1px solid rgba(0, 0, 0, .075)
+}
+
+
+.header__content {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .8em;
+    filter: none;
+}

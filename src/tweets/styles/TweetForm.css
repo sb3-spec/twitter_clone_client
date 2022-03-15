@@ -1,0 +1,18 @@
+.tweet-form-container {
+    display: flex;
+    justify-content: center;
+    border: 1px solid lightblue;
+    width: 100%;
+    padding-top: 1em;
+}
+
+.form-control {
+    height: 10em;
+    width: 30em;
+}
+
+.form_container {
+    margin-left: 1em;
+}
+
+

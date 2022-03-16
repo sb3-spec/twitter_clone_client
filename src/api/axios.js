@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 
 // 'https://twitter-clone-drf.herokuapp.com'
 
-const hostname = 'http://localhost:8000/api';
+const hostname = 'https://twitter-clone-drf.herokuapp.com/api' // 'http://localhost:8000/api';
 
 
 export const api = axios.create({

@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 
-const hostname = 'https://twitter-clone-drf.herokuapp.com'
+const hostname = 'http://localhost:8000' //'https://twitter-clone-drf.herokuapp.com'
 
 export function lookup(method, endpoint, callback, data) {
   let jsonData;

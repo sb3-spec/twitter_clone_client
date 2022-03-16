@@ -25,9 +25,10 @@ function Login({setCurrUser, setIsLogin}) {
             "password": passwordRef.current.value
         }
 
-        api.post('/auth/login', userData).then((response) => {
+        api.post('/auth/login', userData, {withCredentials: true}).then((response) => {
             setCurrUser(response.data)
             localStorage.setItem('loggedInUser', JSON.stringify(response.data))
+            console.log(response.COOKIES)
             nav('/')
         }).catch((error) => {
             if (error.message.indexOf('400') !== -1) {

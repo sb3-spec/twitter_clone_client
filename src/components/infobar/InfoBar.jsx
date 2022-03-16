@@ -3,11 +3,12 @@ import {Search} from '../explore'
 import {ListWidget} from './'
 import axios from 'axios';
 import Cookies from 'js-cookie'
+// 'http://localhost:8000/api'
 
 import './styles.css'
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/api',
+  baseURL: 'https://twitter-clone-drf.herokuapp.com/api',
   headers: {
       'Content-Type': 'application/json',
       "X-CSRFToken": Cookies.get('csrftoken'),

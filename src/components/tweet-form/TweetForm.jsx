@@ -1,32 +1,32 @@
 import React, {useRef} from 'react';
-import {apiTweetFeed, apiTweetCreate} from '../../tweets/tweet_functions';
+import {api} from '../../api/axios'
 import {UserPicture} from '../../profiles';
 import './styles.css'
 
 function TweetForm(props) {
-    const {currUser} = props
-    const username = currUser  && currUser.username
+    const {currUser, setTweets} = props
     const textAreaRef = useRef('')
-
-
-    const handleBackendRefresh = (response, status) => {
-        // backened api handler 
-        let tempNewTweets = [...props.newTweets]
-        if (status === 201) {
-            tempNewTweets.unshift(response)
-            props.setNewTweets(tempNewTweets)
-            apiTweetFeed(props.username, props.callback)
-        } else {
-            alert("An error has occurred. Please try again")
-        }
-    }
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const newTweetContent = textAreaRef.current.value
+
+        
         if (newTweetContent !== '') {
-            apiTweetCreate(newTweetContent, handleBackendRefresh, username);
+            api.post('/tweets/create/', {'user': currUser, 'content': newTweetContent}).then((response) => {
+                let tempNewTweets = [...props.newTweets]
+                tempNewTweets.unshift(response)
+                props.setNewTweets(tempNewTweets)
+                api.post('/tweets/feed', {"user" : currUser}).then((response) => {
+                    if (response.status === 200) {
+                      setTweets(response.data);
+                    }
+                  }).catch((error) => {
+                    console.error(error)
+                  })
+            }).catch((error) => {
+                alert('Error occurred while making the tweet')
+            })
         }
         textAreaRef.current.value = ''
     }

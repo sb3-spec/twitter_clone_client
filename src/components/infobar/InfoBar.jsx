@@ -64,9 +64,11 @@ function InfoBar({currUser}) {
   return (
     <div className="infobar__outer">
         <Search />
-        <ListWidget items={tweets} currUser={currUser} header="What's trending"/>
-        <br />
-        <ListWidget items={profiles} currUser={currUser} header="Who to follow" profile/>
+        <div className="infobar__inner">
+          <ListWidget items={tweets} currUser={currUser} header="What's trending"/>
+          <br />
+          <ListWidget items={profiles} currUser={currUser} header="Who to follow" profile/>
+        </div>
     </div>
   )
 }

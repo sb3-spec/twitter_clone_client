@@ -1,5 +1,5 @@
 .tweet-form__container-outer {
-    min-width: 37rem;
+    max-width: 37rem;
     padding-top: 2em;
     margin-right: 0;
 
@@ -27,7 +27,7 @@
 .tweet-form__textarea {
     border: none;
     text-decoration: none;
-    width: 20em;
+    max-width: 20em;
     resize: none;
     font-size: 1.3em;
 }

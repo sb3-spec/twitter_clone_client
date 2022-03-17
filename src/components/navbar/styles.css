@@ -1,12 +1,9 @@
 .navbar__container__outer {
-    justify-content: right;
-    text-align: right;
     max-width: 650px;
 }
 
 .navbar__container__inner {
     position: fixed;
-    left: 15em;
 }
 
 .navbar__header {
@@ -17,7 +14,7 @@
 
 .navbar__list {
     list-style: none;
-    
+    padding: 0;
 }
 
 .bold {
@@ -43,7 +40,7 @@
     padding: .75em .5em;
     text-align: center;
     justify-content: center;
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: black;
     display: grid;
     grid-template-columns: 30% 70%;
@@ -76,5 +73,18 @@
 
 .curved_border:hover {
     border-radius: 10px;
+}
+
+@media (max-width: 844px) {
+    
+}
+
+@media screen and (max-width:993px) {
+    .list-item__content {
+        display: none;
+    }
+    .navbar__header {
+        padding: 0;
+    }
 }
 

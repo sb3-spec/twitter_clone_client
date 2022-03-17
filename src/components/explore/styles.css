@@ -65,7 +65,7 @@
 
 .result__inner {
     display: grid;
-    grid-template-columns: 18% 1fr;
+    grid-template-columns: 22% 1fr;
     padding: .75em .5em;
     transition: all 200ms ease-in;
 }

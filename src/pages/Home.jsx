@@ -55,7 +55,7 @@ function Home({currUser, setCurrUser}) {
     
 
     return ( 
-        <div className="home-container clearfix">
+        <div className="home-container">
           <Navbar setCurrentSection={setCurrentSection} currentSection={currentSection} currentUser={currUser}/>
           <Routes>
               <Route exact path='/' element={<Feed focusedTweetId={focusedTweetId} setFocusedTweetId={setFocusedTweetId} 

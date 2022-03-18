@@ -12,27 +12,30 @@ export const Search = ({currUser}) => {
     
 
     const handleChange = (event) => {
-        if (event.target.value === '' || currSearch === '') {return}
+        
         setCurrSearch(event.target.value);
-        if (event.target.value !== '') {
-            api.post('/search/', {'search_term' : currSearch, 'user': currUser}).then((response) => {
-                handleChangeCallback(response)
-            }).catch((error) => {
-                alert('Error in search')
-                setProfiles([])
-                setTweets([])
-            })
-        }
+        console.log('event.target.value -->', event.target.value, currSearch)
+        if (event.target.value === '' || currSearch === '') {return}
+
+        api.post('/search/', {'search_term' : currSearch, 'user': currUser}).then((response) => {
+            handleChangeCallback(response)
+        }).catch((error) => {
+            alert('Error in search')
+            setProfiles([])
+            setTweets([])
+        })
         
     }
 
     const handleChangeCallback = (response) => {
-        if (response.tweets) {
-            setTweets(response.tweets)
+        if (response?.data?.tweets) {
+            setTweets(response.data.tweets)
         }
-        if (response.profiles) {
-            setProfiles(response.profiles)
+        if (response?.data?.profile) {
+            setProfiles(response.data.profiles)
+            console.log(response.data.profiles)
         } 
+        console.log(profiles)
     }
 
     useEffect(() => {
@@ -71,6 +74,7 @@ export const Search = ({currUser}) => {
 
 
 export const SearchDropDown = ({tweets, profiles}) => {
+    console.log(profiles)
     return (
         <div className="search-dropdown__outer">
             {/* <div className="list__shell">{tweets && tweets.map((tweet) => <DropdownItem item={tweet} tweet/>)}</div> */}
@@ -80,6 +84,7 @@ export const SearchDropDown = ({tweets, profiles}) => {
 }
 
 export const DropdownItem = ({item, tweet}) => {
+    console.log(item)
     return (
         <div className="result__outer">
             {tweet ? <TweetResult item={item}/> : <ProfileResult item={item}/>}

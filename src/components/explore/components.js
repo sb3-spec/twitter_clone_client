@@ -1,39 +1,38 @@
 import {useState,  useEffect} from 'react'
 import { useNavigate } from 'react-router'
-import {apiGetSearchResults} from '../../api/search'
+import {api} from '../../api/axios'
 import {UserDisplay, UserPicture} from '../../profiles'
 
 import './styles.css'
 
-export const Search = () => {
+export const Search = ({currUser}) => {
     const [tweets, setTweets] = useState([]);
     const [profiles, setProfiles] = useState([]);
     const [currSearch, setCurrSearch] = useState('');
     
 
     const handleChange = (event) => {
+        if (event.target.value === '' || currSearch === '') {return}
         setCurrSearch(event.target.value);
-        console.log(event.target.value);
-        // TODO apiCall to search for current lookup
         if (event.target.value !== '') {
-            console.log('This is the value sent to the back', currSearch)
-            apiGetSearchResults(handleChangeCallback, event.target.value)
+            api.post('/search/', {'search_term' : currSearch, 'user': currUser}).then((response) => {
+                handleChangeCallback(response)
+            }).catch((error) => {
+                alert('Error in search')
+                setProfiles([])
+                setTweets([])
+            })
         }
+        
     }
 
-    const handleChangeCallback = (response, status) => {
-        if (status === 200) {
-            if (response.tweets) {
-                setTweets(response.tweets)
-            }
-            if (response.profiles) {
-                setProfiles(response.profiles)
-            }
-            
-        } else if (status === 404) {
-            setProfiles([])
-            setTweets([])
+    const handleChangeCallback = (response) => {
+        if (response.tweets) {
+            setTweets(response.tweets)
         }
+        if (response.profiles) {
+            setProfiles(response.profiles)
+        } 
     }
 
     useEffect(() => {

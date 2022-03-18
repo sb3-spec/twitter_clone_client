@@ -1,8 +1,8 @@
 .explore__outer {
-    width: 100%;
     border-left: 1px solid rgba(0,0,0,.075);
     border-right: 1px solid rgba(0,0,0,.075);
     position: relative;
+    
 }
 
 .search__outer {
@@ -12,6 +12,7 @@
     z-index: 100;
     backdrop-filter: blur(5px);
     background: rgba(255,255,255, .8);
+    min-width: 400px;
 }
 
 .search__inner {

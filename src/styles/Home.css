@@ -12,7 +12,7 @@
 @media screen and (max-width: 1313px) {
     .home-container {
         margin-left: 8%;
-        grid-template-columns: 15% 36rem 15rem;
+        grid-template-columns: 15% 36rem;
     }
 }
 
@@ -22,9 +22,27 @@
     }
 }
 
+@media screen and (max-width: 1350px) {
+    .home-container {
+        display: block;
+        margin-left: 6%;
+        top: 100px;
+    }
+}
+
 @media screen and (max-width: 993px) {
     .home-container {
-        grid-template-columns: 4em 36rem;
+        margin: 0%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    /* .home-container {
+        display: grid;
+        grid-template-columns: 1% 1fr
+    } */
+    .home-container {
+        width: 100%;
     }
 }
 

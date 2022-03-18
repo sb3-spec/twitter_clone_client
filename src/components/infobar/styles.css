@@ -44,7 +44,7 @@
     top: 10px;
 }
 
-@media screen and (max-width: 962px) {
+@media screen and (max-width: 1353px) {
     .infobar__outer {
         display: none;
     }

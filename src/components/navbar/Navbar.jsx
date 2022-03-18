@@ -27,6 +27,8 @@ function Navbar(props) {
             return 'explore'
         } else if (content === 'Settings') {
             return 'settings'
+        } else {
+            return '/'
         }
     }
 
@@ -37,7 +39,7 @@ function Navbar(props) {
     
 
     const handleClick = (content) => {
-        setActiveSection(content)
+        setActiveSection(content);
         navigate(getPath(content));
              
     }
@@ -48,7 +50,7 @@ function Navbar(props) {
             <div className="navbar__container__inner">
                 <ul className='navbar__list'>
                     <li key={'icon'} className="navbar__header">
-                        <i onClick={handleClick} className="fab fa-twitter twitter-icon"></i>
+                        <i onClick={() => {handleClick('Home')}} className="fab fa-twitter twitter-icon"></i>
                     </li>
                     {navbarContent.map((content, idx) => <li value={content} onClick={() => {
                         handleClick(content);

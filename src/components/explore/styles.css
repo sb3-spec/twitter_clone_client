@@ -75,5 +75,18 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 1350px) {
+    .explore__outer {
+        margin-left: 10em;
+    }
+}
+
+@media screen and (max-width:993px) {
+    .explore__outer {
+        margin-left: 4em;
+    }
+}
+
+
 
 

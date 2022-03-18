@@ -1,5 +1,6 @@
 .tweet-detail__container {
     width: 100%;
+    min-width: 500px;
     position: relative;
     border-top: 1px solid rgba(0, 0, 0, 0.075);
     border-right: 1px solid rgba(0, 0, 0, 0.075);

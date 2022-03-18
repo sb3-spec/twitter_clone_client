@@ -1,6 +1,6 @@
 import './styles.css'
 
-export function NavbarListItemComponent({content, currentUser, active, setActiveSection}) {
+export function NavbarListItemComponent({content, active}) {
 
     function listIcon() {
         if (content === 'Home') {

@@ -1,9 +1,13 @@
-
+.twitter_feed {
+    max-width: 39rem;
+    min-width: 24rem;
+}
 
 
 
 .home__header {
-    width: 33.9%;
+    max-width: 35.9rem;
+    width: 100%;
     justify-content: center;
     position: fixed;
     height: 3em;
@@ -22,6 +26,20 @@
     padding-left: .8em;
     filter: none;
 }
+
+
+@media screen and (max-width: 1350px) {
+    .twitter_feed {
+        margin-left: 10em;
+    }
+}
+
+@media screen and (max-width:993px) {
+    .twitter_feed {
+        margin-left: 4em;
+    }
+}
+
 
 @media screen and (max-width: 710px) {
     .home__header {

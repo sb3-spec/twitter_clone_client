@@ -123,7 +123,13 @@
 
 @media screen and (max-width: 606px) {
     .profile__action-button {
-        right: 30%;
+        right: 40%;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .profile__header {
+        display: none;
     }
 }
 

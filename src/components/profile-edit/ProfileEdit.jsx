@@ -1,11 +1,9 @@
 import React, {useRef, useState} from 'react';
-import {UserImages} from '../../profiles';
 import {api} from '../../api/axios'
 import ProfilePictureChoice from './ProfilePictureChoice'
 import ProfileBannerSelect from './ProfileBannerSelect'
 
 import './styles.css';
-import banner from '../../media/forest_banner.jpg';
 
 function ProfileEdit(props) {
     const {user, closeModal, setCurrUser} = props
@@ -137,7 +135,6 @@ function ProfileEdit(props) {
                     </div>
                     <button className="save-btn" onClick={saveProfile}>Save</button>
                 </div>
-                <UserImages user={user} banner={banner} isEditing/>
                 {(!editImages && !editingBanner) && <FormSection />}
                 {editImages && <ProfilePictureChoice closeModal={closeModal} handleClick={handleSelectProfilePics} setCurrUser={setCurrUser}/>}
                 {editingBanner && <ProfileBannerSelect handleClick={handleSelectBanners} setCurrUser={setCurrUser} closeModal={closeModal}/>}

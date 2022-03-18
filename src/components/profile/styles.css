@@ -33,3 +33,13 @@
 ol {
     padding: 0;
 }
+
+@media screen and (max-width: 684px) {
+    .option-item {
+        font-size: 1.2em;
+    }
+
+    .profile-nav__container {
+        width: 80%;
+    }
+}

@@ -15,7 +15,6 @@ function Navbar(props) {
         "Home",
         "Profile",
         "Explore",
-        "Messages",
         "Settings"
     ]
 
@@ -63,7 +62,7 @@ function Navbar(props) {
                 </ul>
 
                 <div className="profile__snippet">
-                    <ProfileResult item={currentUser} className="curved_border"/>
+                    <ProfileResult item={currentUser} className="curved_border "/>
                 </div>
             </div>
             

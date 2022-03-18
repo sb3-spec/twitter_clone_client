@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback } from 'react'
 import Tweet from './Tweet'
-import { apiTweetFeed } from '../tweet_functions'
 import '../styles/TweetFeed.css'
 import {api} from '../../api/axios'
 
@@ -10,15 +9,8 @@ const TweetFeedList = (
   { newTweets, setNewTweets, tweets, 
     setTweets, currUser, tweetsDidSet, 
     callback, nextUrl, handleLoadNextResponse, 
-    setFocusedTweetId, focusedTweetId} ) => { 
+    setFocusedTweetId, focusedTweetId, setTweetsDidSet} ) => { 
   const [loading, setLoading] = useState(true);
-
-  const handleLoadNext = (e) => {
-    e.preventDefault();
-    if (nextUrl !== null) {
-      apiTweetFeed(currUser, handleLoadNextResponse, nextUrl);
-    }
-  }
 
   const fetchFeed = useCallback(() => {
     api.post('/tweets/feed', {"user" : currUser}).then((response) => {
@@ -53,8 +45,8 @@ const TweetFeedList = (
       <div className="tweet_feed__container">
           {tweets.map((tweet, idx) => {return <Tweet focusedTweetId={focusedTweetId} setFocusedTweetId={setFocusedTweetId} tweet={tweet} idx={idx} key={`${idx}-${tweet.id}`}
             callback={callback} currentUser={currUser} 
-            nextUrl={nextUrl} />})}
-          {nextUrl && <button className='btn btn-outline btn-primary w-100' onClick={handleLoadNext}>Load More</button>}
+            nextUrl={nextUrl} setTweets={setTweets} setTweetsDidSet={setTweetsDidSet} />})}
+          {/* {nextUrl && <button className='btn btn-outline btn-primary w-100' onClick={handleLoadNext}>Load More</button>} */}
       </div>
   ) : 
     <div className="tweet_feed__container">

@@ -22,3 +22,9 @@
     padding-left: .8em;
     filter: none;
 }
+
+@media screen and (max-width: 710px) {
+    .home__header {
+        display: none;
+    }
+}

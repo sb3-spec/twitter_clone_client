@@ -67,7 +67,7 @@
     position: fixed;
     text-align: right;
     justify-content: right;
-    left: 15em;
+    left: 12%;
     top: 90vh
 }
 
@@ -75,8 +75,16 @@
     border-radius: 10px;
 }
 
-@media (max-width: 844px) {
-    
+@media screen and (max-width: 1313px) {
+    .profile__snippet {
+        left: 6%;
+    }
+}
+
+@media (max-width: 1166px) {
+    .profile__snippet {
+        display: none;
+    }
 }
 
 @media screen and (max-width:993px) {
@@ -87,4 +95,6 @@
         padding: 0;
     }
 }
+
+
 

@@ -1,12 +1,14 @@
 import React, { useState, useEffect, createRef } from 'react'
 import '../styles/TweetOptionsBtn.css'
-import { apiGetUserTweets, apiTweetDelete, apiTweetFeed } from '../tweet_functions'
+import {api} from '../../api/axios'
 
-function TweetOptionsBtn({ tweet, currentUser, setIsDeleted, nextUrl, callback }) {
+function TweetOptionsBtn({ tweet, currentUser, setIsDeleted, setTweets }) {
     const [clicked, setClicked] = useState(false);
     const [options, setOptions] = useState([]);
 
     const modalWindow = createRef();
+
+    
 
     window.addEventListener('mousedown', (event) => {
         if (
@@ -28,6 +30,10 @@ function TweetOptionsBtn({ tweet, currentUser, setIsDeleted, nextUrl, callback }
 
     function TweetOption({ content }) {
 
+        const deleteTweet = () => {
+            api.post(`/tweets/${tweet.id}/delete/`, {'user': currentUser}).then(handleTweetDelete()).catch(() => {alert('Error, could not complete action')})
+        }
+
 
         const handleOptionChoice = (event) => {
             event.preventDefault();
@@ -35,7 +41,8 @@ function TweetOptionsBtn({ tweet, currentUser, setIsDeleted, nextUrl, callback }
             setClicked(false);
     
             if (content === 'Delete Tweet') {
-                apiTweetDelete(handleTweetDelete, tweet.id, currentUser)
+                // apiTweetDelete(handleTweetDelete, tweet.id, currentUser)
+                deleteTweet()
             } else if (content === 'Pin to Profile') {
                 
             } else if (content === 'report') {
@@ -47,17 +54,23 @@ function TweetOptionsBtn({ tweet, currentUser, setIsDeleted, nextUrl, callback }
             }
         }
 
-        const handleTweetDelete = (status) => {
-            if (status === 200) {
-                setIsDeleted(true)
-                var brokenUrl = window.location.pathname.split('/');
-                var username = brokenUrl.pop();
+        const handleTweetDelete = () => {
+            setIsDeleted(true)
+            var brokenUrl = window.location.pathname.split('/');
+            var username = brokenUrl.pop();
 
-                if (username === 'profile') {
-                    apiGetUserTweets()
-                } else {
-                    apiTweetFeed(currentUser, callback, nextUrl)
-                }
+            console.log(username)
+
+            if (username === 'profile') {
+                // apiGetUserTweets()
+                api.post(`/tweets/${username}/tweets/`, {'user': currentUser}).then((response) => {
+                    setTweets(response.data)
+                }).catch(() => {alert('Error, could not update user tweets')})
+            } else {
+                // apiTweetFeed(currentUser, callback, nextUrl)
+                api.post(`/tweets/feed`, {'user': currentUser}).then((response) => {
+                    setTweets(response.data)
+                }).catch(() => {alert('Error, could not update feed')})
             }
         }
 
@@ -85,7 +98,7 @@ function TweetOptionsBtn({ tweet, currentUser, setIsDeleted, nextUrl, callback }
     ) : (
         <div className="modal__background">
             <div className="options-btn__toggled" ref={modalWindow}>
-                {options.map((option) => <TweetOption content={option} currentUser={currentUser}/>)}
+                {options.map((option, idx) => <TweetOption content={option} currentUser={currentUser} key={idx}/>)}
             </div>
         </div>
     );

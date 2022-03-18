@@ -7,11 +7,12 @@ import TweetOptionsBtn from './TweetOptionsBtn'
 import '../styles/Tweet.css'
 
  
-function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetId, idx}) { 
+function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetId, idx, setTweets, setTweetsDidSet}) { 
     const [didLike, setDidLike] = useState(false);
     const [didRetweet, setDidRetweet] = useState(false);
     const [likes, setLikes] = useState();
     const [didLookupTweet, setDidLookupTweet] = useState(false);
+    const [isDeleted, setIsDeleted] = useState(false);
 
     const nav = useNavigate();
     
@@ -76,7 +77,7 @@ function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetI
         getTweetData()
     }, [getTweetData]); 
     
-    let willRender = (didLookupTweet && tweet && (tweet.content || tweet.parent))
+    let willRender = (didLookupTweet && tweet && (tweet.content || tweet.parent) && !isDeleted)
 
     // CONTENT
 
@@ -107,7 +108,7 @@ function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetI
                 <div className="tweet-header">
                     <UserDisplay user={tweet.user} /> 
                 </div>
-                <TweetOptionsBtn tweet={tweet} currentUser={currentUser}/>
+                <TweetOptionsBtn tweet={tweet} currentUser={currentUser} setTweets={setTweets} setIsDeleted={setIsDeleted}/>
             </div>}
             <div className="tweet-container">
                 {tweet.content !== "" &&

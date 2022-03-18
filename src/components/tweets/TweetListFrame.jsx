@@ -38,7 +38,7 @@ export default function TweetListFrame({activeView, currUser, profileOwner, apiF
         <div className={`tweet-frame__container`}>
             <div className="tweets-list">
                 <ol>
-                    {tweets && tweets.map((tweet, idx) => <Tweet tweet={tweet} key={idx} currentUser={currUser}/>)}
+                    {tweets && tweets.map((tweet, idx) => <Tweet tweet={tweet} key={idx} currentUser={currUser} setTweets={setTweets}/>)}
                 </ol>
             </div>
         </div>

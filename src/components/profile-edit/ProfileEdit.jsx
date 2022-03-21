@@ -16,6 +16,13 @@ function ProfileEdit(props) {
     const [error, setError] = useState('');
     const [editImages, setEditImages] = useState(false);
     const [editingBanner, setEditingBanner] = useState(false);
+
+    const [username, setUsername] = useState(user.username || '')
+    const [location, setLocation] = useState(user.location || '')
+    const [email, setEmail] = useState(user.email || '')
+    const [firstName, setFirstName] = useState(user.firstName || '')
+    const [lastName, setLastName] = useState(user.lastName || '')
+    const [bio, setBio] = useState(user.bio || '')
     
 
 
@@ -26,24 +33,13 @@ function ProfileEdit(props) {
         firstNameRef.current,
         lastNameRef.current,
         emailRef.current,
-    ]
-
-    function emptyFields(editFields) {
-        for (let i=0; i<editFields.length; i++) {
-            if (editFields[i] === '') {
-                return true
-            }
-        }
-        return false
-    }
-    
+    ]    
 
     const saveProfile = (event) => {
         event.preventDefault();
-        if (emptyFields(editFields)) {
-            setError('All fields must be filled')
-            return
-        }
+
+        console.log(bioRef.current.value)
+
 
         const editData = {
             "username": usernameRef.current.value,
@@ -90,27 +86,27 @@ function ProfileEdit(props) {
                 <form>
                     <div className="form-container">
                         <label>Username</label>
-                        <textarea className="edit username" defaultValue={usernameRef.current}></textarea>
+                        <textarea className="edit username" defaultValue={usernameRef.current} ref={usernameRef}></textarea>
                     </div>
                     <div className="form-container">
                         <label>Bio</label>
-                        <textarea className="edit bio"defaultValue={bioRef.current}></textarea>
+                        <textarea className="edit bio" defaultValue={bioRef.current} ref={bioRef}></textarea>
                     </div>
                     <div className="form-container small-form">
                         <label>Location</label>
-                        <textarea className="edit location" defaultValue={locationRef.current}></textarea>
+                        <textarea className="edit location" defaultValue={locationRef.current} ref={locationRef}></textarea>
                     </div>
                     <div className="form-container small-form">
                         <label>First Name</label>
-                        <textarea className="edit firstname" defaultValue={firstNameRef.current}></textarea>
+                        <textarea className="edit firstname" defaultValue={firstNameRef.current} ref={firstNameRef}></textarea>
                     </div>
                     <div className="form-container small-form">
                         <label>Last Name</label>
-                        <textarea className="edit lastname" defaultValue={lastNameRef.current}></textarea>
+                        <textarea className="edit lastname" defaultValue={lastNameRef.current} ref={lastNameRef}></textarea>
                     </div>
                     <div className="form-container small-form">
                         <label>Email</label>
-                        <textarea className="edit location" defaultValue={emailRef.current}></textarea>
+                        <textarea className="edit location" defaultValue={emailRef.current} ref={emailRef}></textarea>
                     </div>
                 </form>
             </div>

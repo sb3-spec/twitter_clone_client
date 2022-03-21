@@ -28,6 +28,7 @@ export const Search = ({currUser}) => {
     }
 
     const handleChangeCallback = (response) => {
+        setProfiles(response.data.profiles)
         if (response?.data?.tweets) {
             setTweets(response.data.tweets)
         }

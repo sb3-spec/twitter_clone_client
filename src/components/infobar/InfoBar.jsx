@@ -63,7 +63,7 @@ function InfoBar({currUser}) {
 
   return (
     <div className="infobar__outer">
-        <Search />
+        <Search currUser={currUser} />
         <div className="infobar__inner">
           <ListWidget items={tweets} currUser={currUser} header="What's trending"/>
           <br />

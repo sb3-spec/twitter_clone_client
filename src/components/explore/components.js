@@ -14,7 +14,6 @@ export const Search = ({currUser}) => {
     const handleChange = (event) => {
         
         setCurrSearch(event.target.value);
-        console.log('event.target.value -->', event.target.value, currSearch)
         if (event.target.value === '' || currSearch === '') {return}
 
         api.post('/search/', {'search_term' : currSearch, 'user': currUser}).then((response) => {

@@ -16,29 +16,11 @@ function ProfileEdit(props) {
     const [error, setError] = useState('');
     const [editImages, setEditImages] = useState(false);
     const [editingBanner, setEditingBanner] = useState(false);
-
-    const [username, setUsername] = useState(user.username || '')
-    const [location, setLocation] = useState(user.location || '')
-    const [email, setEmail] = useState(user.email || '')
-    const [firstName, setFirstName] = useState(user.firstName || '')
-    const [lastName, setLastName] = useState(user.lastName || '')
-    const [bio, setBio] = useState(user.bio || '')
     
-
-
-    const editFields = [
-        usernameRef.current,
-        bioRef.current,
-        locationRef.current,
-        firstNameRef.current,
-        lastNameRef.current,
-        emailRef.current,
-    ]    
 
     const saveProfile = (event) => {
         event.preventDefault();
 
-        console.log(bioRef.current.value)
 
 
         const editData = {
@@ -60,10 +42,8 @@ function ProfileEdit(props) {
             localStorage.setItem('loggedInUser', JSON.stringify(response.data))
             closeModal()
         }).catch((error) => {
-            alert("An error occurred in ProfileEdit")
-        }).finally(
-            closeModal()
-        )
+            setError('An error has occurred while saving profile')
+        })
     }
 
     function handleSelectProfilePics(event) {

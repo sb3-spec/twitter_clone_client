@@ -2,17 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'
 
-import TweetList from './tweets/components/TweetList';
+import store from './redux/store';
+import { Provider } from 'react-redux';
+// STORE
+
+// ACTION
+
+
 
 const app = document.getElementById("root")
 if (app) {
-    ReactDOM.render(<App />, app);
+    ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    app);
 }
 
-const globalTweetList = document.getElementById("global_tweets")
-if (globalTweetList) {
-    ReactDOM.render(<TweetList />, globalTweetList);
-}
 
 
 

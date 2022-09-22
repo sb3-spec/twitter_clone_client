@@ -10,21 +10,11 @@ import '../styles/Tweet.css'
 function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetId, idx, setTweets, setTweetsDidSet}) { 
     const [didLike, setDidLike] = useState(false);
     const [didRetweet, setDidRetweet] = useState(false);
-    const [likes, setLikes] = useState();
+    const [likes, setLikes] = useState(tweet.likes);
     const [didLookupTweet, setDidLookupTweet] = useState(false);
     const [isDeleted, setIsDeleted] = useState(false);
 
     const nav = useNavigate();
-    
-    const getTweetData = useCallback(() => {
-        if (tweet === undefined) {return}
-        api.post(`/tweets/data/${tweet.id}`, {"user" : currentUser}).then((response) => {
-            getTweetDataCallback(response.data)     
-        }).catch((error) => {console.log(error)})
-    }, [currentUser, tweet]);
-
-    
-
 
     // EVENT FUNCTIONS 
     const handleLink = (e) => {
@@ -33,12 +23,6 @@ function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetI
         nav(`/${tweet.id}`)
     }  
 
-    const getTweetDataCallback = (data) => {
-        setDidRetweet(data['didRetweet']);
-        setDidLike(data['didLike']);
-        setLikes(data['likes']);
-        setDidLookupTweet(true);
-    }
     
     function handleTweetAction(action, event) {
         event.stopPropagation()
@@ -61,7 +45,7 @@ function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetI
             'action': currentAction
         }
         api.post('/tweets/action', data).then((response) => {
-            getTweetData()
+            // getTweetData()
         }).catch((err) => {
             console.error(err)
         })
@@ -69,15 +53,7 @@ function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetI
     }
     
     // CALLBACKS
-
     
-
-    // EFFECTS
-    useEffect(() => {
-        getTweetData()
-    }, [getTweetData]); 
-    
-    let willRender = (didLookupTweet && tweet && (tweet.content || tweet.parent) && !isDeleted)
 
     // CONTENT
 
@@ -98,7 +74,7 @@ function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetI
         ) : null
     }
 
-    return willRender ? (
+    return true ? (
         <div className={className + " overall-container"} onClick={((e) => handleLink(e))}>
             {!tweet.parent &&
             <div className="profile-container d-flex">

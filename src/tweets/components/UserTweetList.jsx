@@ -27,7 +27,8 @@ function UserTweetList(props) {
         event.stopPropagation()
 
         if (nextUrl !== null) {
-            apiGetUserTweets(handleLoadNextResponse, user.username, nextUrl);
+            
+            apiGetUserTweets(handleLoadNextResponse, (encodeURIComponent(user.email)), nextUrl);
         }
     }
 
@@ -35,7 +36,8 @@ function UserTweetList(props) {
         let mounted = true
 
         if (mounted === true && user) {
-            apiGetUserTweets(handleGetUserTweets, user.username);
+            console.log(user.email)
+            apiGetUserTweets(handleGetUserTweets, encodeURIComponent(user.email));
             setLoading(false);
         }
 

@@ -25,7 +25,7 @@ export default function TweetListFrame({activeView, currUser, profileOwner, apiF
         let mounted = true;
         const fetchTweets = async () => {
             if (!mounted | !loading | !profileOwner) {return}
-            apiFunction(fetchTweetsCallback, profileOwner.username) 
+            apiFunction(fetchTweetsCallback, profileOwner.email) 
         }
         fetchTweets()
         return () => {

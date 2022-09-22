@@ -36,7 +36,7 @@ function ProfileComponent(props) {
         let apiPath = `profiles/${potentialPath}`
 
         const fetchProfile = () => {
-            api.post(apiPath, {"user": currUser}).then((response) => {
+            api.get(apiPath).then((response) => {
                 if (response.data.username === currUser.username) {
                     navigate('/profile')
                 }

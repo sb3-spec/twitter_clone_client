@@ -76,14 +76,10 @@ export function apiTweetDelete(callback, tweetId, username) {
     lookup("POST", endpoint, callback, data)
 }
 
-export function apiGetUserTweets(callback, username) {
-    let endpoint = '/tweets/'
+export function apiGetUserTweets(callback, email) {
+    let endpoint = `/tweets/?${encodeURIComponent(email)}`;
 
-    if (username !== null && username !== undefined) {
-        endpoint += `${username}/tweets/`
-    }
-
-    lookup("GET", endpoint, callback)
+    lookup("GET", endpoint, callback);
 
 }
 

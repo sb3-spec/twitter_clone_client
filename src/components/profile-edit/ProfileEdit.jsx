@@ -42,7 +42,9 @@ function ProfileEdit(props) {
             localStorage.setItem('loggedInUser', JSON.stringify(response.data))
             closeModal()
         }).catch((error) => {
-            setError('An error has occurred while saving profile')
+            
+            closeModal()
+            alert('Error updating profile: ' + error.message)
         })
     }
 

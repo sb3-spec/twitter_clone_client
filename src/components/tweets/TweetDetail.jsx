@@ -5,23 +5,30 @@ import './styles.css'
 
 function TweetDetail({currUser}) {
     const [didLookupTweet, setDidLookupTweet] = useState(false);
-    const [tweet, setTweet] = useState();
+    const [tweet, setTweet] = useState({});
 
-    const fetchTweetData = useCallback(() => {
+    const fetchTweetData = useCallback(async () => {
         var tweetIdRegex = /\d+$/
         let match = window.location.pathname.match(tweetIdRegex)
         if (match === null  || match === undefined) {
             return
         }
         let tweetId = match[0]
-        api.get(`/tweets/${tweetId}`).then((response) => {setTweet(response.data)}).catch((error) => {console.log(error)})
-    }, [])
+        await api.get(`/tweets/${tweetId}`).then((response) => {
+            setTweet(response.data)
+            console.log(response.data);
+        }).catch((error) => {console.log(error)})
+    }, []);
 
     useEffect(() =>{
         let mounted = true
-        if (mounted && !didLookupTweet) {
-            fetchTweetData()
+
+        const asyncWrapper = async () => {
+            await fetchTweetData()
             setDidLookupTweet(true)
+        }   
+        if (mounted && !didLookupTweet) {
+            asyncWrapper();
         }
         return () => {
             mounted = false
@@ -37,6 +44,7 @@ function TweetDetail({currUser}) {
                 <p className="header__content">Tweet</p>
             </div>
             <div className="tweet-detail__container">
+                {console.log(tweet)}
                 <Tweet tweet={tweet} currentUser={currUser}/>
             </div>
         </div>

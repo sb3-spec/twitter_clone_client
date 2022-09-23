@@ -16,10 +16,9 @@ export const Search = ({currUser}) => {
         setCurrSearch(event.target.value);
         if (event.target.value === '' || currSearch === '') {return}
 
-        api.post('/search/', {'search_term' : currSearch, 'user': currUser}).then((response) => {
+        api.get(`/search/${encodeURIComponent(currSearch)}`).then((response) => {
             handleChangeCallback(response)
         }).catch((error) => {
-            alert('Error in search')
             setProfiles([])
             setTweets([])
         })

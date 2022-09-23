@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { apiTweetDetail } from '../tweet_functions'
-import {apiUserLookup} from '../tweet_functions' 
-import Tweet from './Tweet'
-import '../styles/TweetDetail.css'
+import React, { useState, useEffect } from 'react';
+// import { apiTweetDetail } from '../tweet_functions'
+// import {apiUserLookup} from '../tweet_functions' 
+import {api} from '../../api/axios';
+import Tweet from './Tweet';
+import '../styles/TweetDetail.css';
 
 function TweetDetail (props) {
     const { tweetId } = props
@@ -11,7 +12,7 @@ function TweetDetail (props) {
     const [tweet, setTweet] = useState(null);
 
     const handleTweetLookup = (response, status) => {
-
+        console.log(response)
         if (status === 200) {
             setTweet(response);
         }
@@ -27,8 +28,7 @@ function TweetDetail (props) {
 
     useEffect(() => {
         if (didLookup === false) {
-            apiTweetDetail(tweetId, handleTweetLookup);
-            apiUserLookup(handleCurrUserLookup);
+            api.get(`/tweets/${tweetId}`).then(res => handleTweetLookup(res, res.status)).catch(err => {alert('error fetching tweet')})
             setDidLookup(true);  
         }
     }, [setDidLookup, tweetId, didLookup])

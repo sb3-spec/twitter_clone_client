@@ -1,14 +1,13 @@
 import { useEffect, useState, useCallback } from 'react'
-import Tweet from './Tweet'
-import '../styles/TweetFeed.css'
-import {api} from '../../api/axios'
+import Tweet from './Tweet';
+import '../styles/TweetFeed.css';
+import {api} from '../../api/axios';
 
 
 
 const TweetFeedList = (
   { newTweets, setNewTweets, tweets, 
-    setTweets, currUser, tweetsDidSet, 
-    callback, nextUrl, handleLoadNextResponse, 
+    setTweets, currUser, callback, nextUrl,
     setFocusedTweetId, focusedTweetId, setTweetsDidSet} ) => { 
   const [loading, setLoading] = useState(true);
 

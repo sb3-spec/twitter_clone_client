@@ -36,7 +36,7 @@ function InfoBar({currUser}) {
     let mounted = true;
     const fetchProfiles = async () => {
         if (!mounted || !tweetsLoading) {return}
-        api.get(`/profiles/?${encodeURIComponent(currUser.email)}/suggestions`).then((response) => {
+        api.get(`/profiles/suggestions/${encodeURIComponent(currUser.email)}`).then((response) => {
             let data = [].slice.call(response.data).slice(0, 3);
             setProfiles(data);
         }).catch((error) => {
@@ -44,9 +44,9 @@ function InfoBar({currUser}) {
         })
     }
     fetchProfiles();
-    setTweetsLoading(false)
+    setTweetsLoading(false);
     return () => {
-        mounted = false
+        mounted = false;
     }
   }, [currUser, tweetsLoading]);
 

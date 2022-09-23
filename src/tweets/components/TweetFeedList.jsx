@@ -12,7 +12,7 @@ const TweetFeedList = (
   const [loading, setLoading] = useState(true);
 
   const fetchFeed = useCallback(() => {
-    api.get(`/tweets/?${encodeURIComponent(currUser.email)}/feed`).then((response) => {
+    api.get(`/tweets/feed/${encodeURIComponent(currUser.email)}`).then((response) => {
       if (response.status === 200) {
         console.log(response.data)
         setTweets(response.data);

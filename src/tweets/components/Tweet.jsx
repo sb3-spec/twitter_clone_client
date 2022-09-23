@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import { UserLink, UserPicture, UserDisplay } from '../../profiles'
 import {api} from '../../api/axios'
 import {useNavigate} from 'react-router'
@@ -8,10 +8,9 @@ import '../styles/Tweet.css'
 
  
 function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetId, idx, setTweets, setTweetsDidSet}) { 
-    const [didLike, setDidLike] = useState(false);
-    const [didRetweet, setDidRetweet] = useState(false);
+    const [didLike, setDidLike] = useState(tweet.user_has_liked);
+    const [didRetweet, setDidRetweet] = useState(tweet.user_has_retweeted);
     const [likes, setLikes] = useState(tweet.likes);
-    const [didLookupTweet, setDidLookupTweet] = useState(false);
     const [isDeleted, setIsDeleted] = useState(false);
 
     const nav = useNavigate();
@@ -25,10 +24,10 @@ function Tweet({ tweet, className, currentUser, focusedTweetId, setFocusedTweetI
 
     
     function handleTweetAction(action, event) {
-        event.stopPropagation()
-        event.preventDefault()
+        event.stopPropagation();
+        event.preventDefault();
 
-        let currentAction = action
+        let currentAction = action;
 
         // verifying that action is ok
         if (action === 'like') {
